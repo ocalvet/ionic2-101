@@ -20,4 +20,7 @@ export class Page1 {
       completedTasks: 2
     }]
   }
+  navigateToChild(child) {
+    console.log('Navigating to ', child);
+  }
 }

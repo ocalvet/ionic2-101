@@ -4,7 +4,7 @@
 
 <ion-content padding class="page1">
   <ion-list>
-    <ion-item *ngFor="#child of children">
+    <ion-item *ngFor="#child of children" (click)="navigateToChild(child)">
       <ion-avatar item-left>
         <img src="{{ child.avatar }}">
       </ion-avatar>
