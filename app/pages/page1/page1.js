@@ -23,4 +23,7 @@ export class Page1 {
   navigateToChild(child) {
     console.log('Navigating to ', child);
   }
+  addChild() {
+    console.log("Adding child...");
+  }
 }
