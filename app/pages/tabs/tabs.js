@@ -13,7 +13,6 @@ export class TabsPage {
     // should be each tab's root Page
     this.tab1Root = Page1;
     this.tab2Root = Page2;
-    this.tab3Root = Page3;
     this.tab4Root = Page4;
   }
 }
