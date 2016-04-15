@@ -1,11 +1,16 @@
-import {Page} from 'ionic-angular';
-
+import {Page, NavController} from 'ionic-angular';
+import {ChildDashboardPage} from '../childDashboard/childDashboard';
 
 @Page({
   templateUrl: 'build/pages/childrenListPage/index.html'
 })
 export class ChildrenListPage {
-  constructor() {
+  static get parameters() {
+    return [[NavController]];
+  }
+
+  constructor(nav) {
+    this.nav = nav;
     this.children = [{
       name: "Ovidio Calvet",
       avatar: "img/avatar.png",
@@ -21,7 +26,8 @@ export class ChildrenListPage {
     }]
   }
   navigateToChild(child) {
-    console.log('Navigating to ', child);
+    console.log('Navigating to ', child, this.nav);
+    this.nav.push(ChildDashboardPage, { child: child });
   }
   addChild() {
     console.log("Adding child...");
