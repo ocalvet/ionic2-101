@@ -1,7 +1,7 @@
 import {Page} from 'ionic-angular';
-import {ChildrenListPage} from '../childrenListPage/childrenListPage';
+import {ChildrenListPage} from '../childrenList/childrenList';
 import {Page2} from '../page2/page2';
-import {Page4} from '../page4/page4';
+import {SettingsPage} from '../settings/settings';
 
 @Page({
   templateUrl: 'build/pages/tabs/tabs.html'
@@ -12,6 +12,6 @@ export class TabsPage {
     // should be each tab's root Page
     this.childrenListPage = ChildrenListPage;
     this.tab2Root = Page2;
-    this.tab4Root = Page4;
+    this.settings = SettingsPage;
   }
 }
