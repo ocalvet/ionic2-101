@@ -2,7 +2,7 @@ import {Page, NavController} from 'ionic-angular';
 import {ChildDashboardPage} from '../childDashboard/childDashboard';
 
 @Page({
-  templateUrl: 'build/pages/childrenListPage/index.html'
+  templateUrl: 'build/pages/childrenList/index.html'
 })
 export class ChildrenListPage {
   static get parameters() {
