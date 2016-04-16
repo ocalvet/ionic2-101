@@ -1,5 +1,6 @@
-import {Page, NavController} from 'ionic-angular';
+import {Page, NavController, Modal} from 'ionic-angular';
 import {ChildDashboardPage} from '../childDashboard/childDashboard';
+import {AddChildPage} from './addChildPage';
 
 @Page({
   templateUrl: 'build/pages/childrenList/index.html'
@@ -31,5 +32,7 @@ export class ChildrenListPage {
   }
   addChild() {
     console.log("Adding child...");
+    let addModal = Modal.create(AddChildPage);
+    this.nav.present(addModal);
   }
 }
