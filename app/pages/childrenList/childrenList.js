@@ -33,6 +33,9 @@ export class ChildrenListPage {
   addChild() {
     console.log("Adding child...");
     let addModal = Modal.create(AddChildPage);
+    addModal.onDismiss((data) => {
+      this.children.push(data);
+    });
     this.nav.present(addModal);
   }
 }

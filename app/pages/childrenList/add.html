@@ -1,5 +1,18 @@
-<ion-content>
-  <h1>Add Child</h1>
-  <button full (click)="closeModal()">Dismiss</button>
-  <button full (click)="add()">Add</button>
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Child Name</ion-label>
+      <ion-input type="text" value="" [(ngModel)]="child.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Birthday</ion-label>
+      <ion-input type="date" value="" [(ngModel)]="child.birthday"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Starting Balance</ion-label>
+      <ion-input type="number" value="" [(ngModel)]="child.balance"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button block (click)="add()">Add</button>
+  <button block (click)="closeModal()" danger>Dismiss</button>
 </ion-content>
