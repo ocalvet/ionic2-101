@@ -4,14 +4,26 @@
 
 <ion-content padding class="page1">
   <ion-list>
-    <ion-item *ngFor="#child of children" (click)="navigateToChild(child)">
-      <ion-avatar item-left>
-        <img src="{{ child.avatar }}">
-      </ion-avatar>
-      <h2>{{ child.name }}</h2>
-      <h3>{{ child.balance | currency:'USD':true }}</h3>
-      <p>{{ child.completedTasks }} / {{ child.totalTasks }}</p>
-    </ion-item>
+    <ion-item-sliding *ngFor="#child of children">
+      <ion-item (click)="navigateToChild(child)">
+        <ion-avatar item-left>
+          <img src="{{ child.avatar }}">
+        </ion-avatar>
+        <h2>{{ child.name }}</h2>
+        <h3>{{ child.balance | currency:'USD':true }}</h3>
+        <p>{{ child.completedTasks }} / {{ child.totalTasks }}</p>
+      </ion-item>
+      <ion-item-options>
+        <button primary>
+          <ion-icon name="text"></ion-icon>
+          Text
+        </button>
+        <button secondary>
+          <ion-icon name="call"></ion-icon>
+          Call
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
   <button fab primary fab-bottom fab-center (click)="addChild()">
     <ion-icon name='add'></ion-icon>
