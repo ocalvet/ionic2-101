@@ -14,11 +14,11 @@
         <p>{{ child.completedTasks }} / {{ child.totalTasks }}</p>
       </ion-item>
       <ion-item-options>
-        <button primary>
+        <button primary (click)="editChild(child)">
           <ion-icon name="create"></ion-icon>
           Edit
         </button>
-        <button danger>
+        <button danger (click)="removeChild(child)">
           <ion-icon name="trash"></ion-icon>
           Remove
         </button>
