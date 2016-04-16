@@ -22,8 +22,9 @@ export class AddChildPage {
   add() {
     let child = {
       name: this.child.name,
-      balance: parseFloat(this.child.balance),
+      balance: this.child.balance ? parseFloat(this.child.balance) : 0,
       totalTasks: 0,
+      avatar: "img/avatar.png",
       completedTasks: 0
     }
     this.viewCtrl.dismiss(child);
