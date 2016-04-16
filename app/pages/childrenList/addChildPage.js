@@ -12,10 +12,7 @@ export class AddChildPage {
   constructor(nav, viewCtrl) {
     this.nav = nav;
     this.viewCtrl = viewCtrl;
-    this.child = {
-      totalTasks: 0,
-      completedTasks: 0
-    };
+    this.child = {};
   }
 
   closeModal() {
@@ -23,6 +20,12 @@ export class AddChildPage {
   }
 
   add() {
-    this.viewCtrl.dismiss(this.child);
+    let child = {
+      name: this.child.name,
+      balance: parseFloat(this.child.balance),
+      totalTasks: 0,
+      completedTasks: 0
+    }
+    this.viewCtrl.dismiss(child);
   }
 }
