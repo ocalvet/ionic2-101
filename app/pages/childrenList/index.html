@@ -14,13 +14,13 @@
         <p>{{ child.completedTasks }} / {{ child.totalTasks }}</p>
       </ion-item>
       <ion-item-options>
-        <button primary (click)="editChild(child)">
-          <ion-icon name="create"></ion-icon>
-          Edit
+        <button primary (click)="editTasks(child)">
+          <ion-icon name="clipboard"></ion-icon>
+          Tasks
         </button>
-        <button danger (click)="removeChild(child)">
-          <ion-icon name="trash"></ion-icon>
-          Remove
+        <button secondary (click)="editMoney(child)">
+          <ion-icon name="card"></ion-icon>
+          Money
         </button>
       </ion-item-options>
     </ion-item-sliding>

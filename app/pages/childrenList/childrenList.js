@@ -40,10 +40,10 @@ export class ChildrenListPage {
     });
     this.nav.present(addModal);
   }
-  editChild(child) {
-    console.log('Editing ', child);
+  editTasks(child) {
+    console.log('task ', child);
   }
-  removeChild(child) {
-    console.log('removing ', child);
+  editMoney(child) {
+    console.log('money ', child);
   }
 }
