@@ -1,9 +1,9 @@
 import {Page, NavParams} from 'ionic-angular';
 
-
 @Page({
   templateUrl: 'build/pages/childDashboard/index.html'
 })
+
 export class ChildDashboardPage {
 
   static get parameters() {

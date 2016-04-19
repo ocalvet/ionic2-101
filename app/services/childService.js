@@ -19,4 +19,10 @@ export class ChildService {
       }]);
     });
   }
+
+  addChild(child) {
+    return new Promise((resolve, reject) => {
+      resolve(child);
+    });
+  }
 }

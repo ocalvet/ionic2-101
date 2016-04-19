@@ -16,15 +16,13 @@ export class ChildrenListPage {
     this.childService = childService;
     childService.getChildren()
       .then((children) => this.children = children);
-
-    console.log('Hello', this.childService)
   }
+
   navigateToChild(child) {
-    console.log('Navigating to ', child, this.nav);
     this.nav.push(ChildDashboardPage, { child: child });
   }
+
   addChild() {
-    console.log("Adding child...");
     let addModal = Modal.create(AddChildPage);
     addModal.onDismiss((data) => {
       if (data) {
@@ -33,9 +31,11 @@ export class ChildrenListPage {
     });
     this.nav.present(addModal);
   }
+
   editTasks(child) {
     console.log('task ', child);
   }
+
   editMoney(child) {
     console.log('money ', child);
   }

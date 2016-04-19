@@ -1,4 +1,5 @@
 import {Page, NavController, ViewController} from 'ionic-angular';
+import {ChildService} from '../../services/childService';
 
 @Page({
   templateUrl: 'build/pages/childrenList/add.html'
@@ -6,11 +7,12 @@ import {Page, NavController, ViewController} from 'ionic-angular';
 export class AddChildPage {
 
   static get parameters() {
-    return [[NavController], [ViewController]];
+    return [[NavController], [ViewController], [ChildService]];
   }
 
-  constructor(nav, viewCtrl) {
+  constructor(nav, viewCtrl, childService) {
     this.nav = nav;
+    this.childService = childService;
     this.viewCtrl = viewCtrl;
     this.child = {};
   }
@@ -27,6 +29,12 @@ export class AddChildPage {
       avatar: "img/avatar.png",
       completedTasks: 0
     }
-    this.viewCtrl.dismiss(child);
+    
+    // Use the childService to persist the child
+    this.childService.addChild(child)
+      .then(
+        (c) => this.viewCtrl.dismiss(c), 
+        (error) => console.log('There was an error saving the new child', error)
+      );
   }
 }
