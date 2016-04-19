@@ -1,30 +1,23 @@
 import {Page, NavController, Modal} from 'ionic-angular';
 import {ChildDashboardPage} from '../childDashboard/childDashboard';
 import {AddChildPage} from './addChildPage';
+import {ChildService} from '../../services/childService';
 
 @Page({
   templateUrl: 'build/pages/childrenList/index.html'
 })
 export class ChildrenListPage {
   static get parameters() {
-    return [[NavController]];
+    return [[NavController], [ChildService]];
   }
 
-  constructor(nav) {
+  constructor(nav, childService) {
     this.nav = nav;
-    this.children = [{
-      name: "Ovidio Calvet",
-      avatar: "img/avatar.png",
-      balance: 5,
-      totalTasks: 10,
-      completedTasks: 5
-    },{
-      name: "Jonathan Calvet",
-      avatar: "img/avatar.png",
-      balance: 62.5,
-      totalTasks: 4,
-      completedTasks: 2
-    }]
+    this.childService = childService;
+    childService.getChildren()
+      .then((children) => this.children = children);
+
+    console.log('Hello', this.childService)
   }
   navigateToChild(child) {
     console.log('Navigating to ', child, this.nav);
