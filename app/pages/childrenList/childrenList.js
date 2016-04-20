@@ -32,6 +32,14 @@ export class ChildrenListPage {
     this.nav.present(addModal);
   }
 
+  deposit(child) {
+    console.log('Depositing for child', child);
+  }
+
+  withdraw(child) {
+    console.log('withdraw for child', child);
+  }
+
   editTasks(child) {
     console.log('task ', child);
   }

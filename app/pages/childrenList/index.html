@@ -2,29 +2,43 @@
   <ion-title>Dashboard</ion-title>
 </ion-navbar>
 
-<ion-content padding class="page1">
-  <ion-list>
-    <ion-item-sliding *ngFor="#child of children">
-      <ion-item (click)="navigateToChild(child)">
-        <ion-avatar item-left>
-          <img src="{{ child.avatar }}">
-        </ion-avatar>
-        <h2>{{ child.name }}</h2>
-        <h3>{{ child.balance | currency:'USD':true }}</h3>
-        <p>{{ child.completedTasks }} / {{ child.totalTasks }}</p>
+<ion-content class="page1">
+  <ion-card *ngFor="#child of children">
+    <ion-card-header (click)="navigateToChild(child)">
+      {{ child.name }}
+    </ion-card-header>
+    <ion-list>
+      <ion-item-sliding>
+        <ion-item>
+          <ion-avatar item-left>
+            <img src="{{ child.avatar }}">
+          </ion-avatar>
+          <h2>{{ child.name }}</h2>
+          <h3>{{ child.balance | currency:'USD':true }}</h3>
+          <p>{{ child.completedTasks }} / {{ child.totalTasks }}</p>
+        </ion-item>
+        <ion-item-options>
+          <button primary (click)="editTasks(child)">
+            <ion-icon name="clipboard"></ion-icon>
+            Tasks
+          </button>
+          <button secondary (click)="editMoney(child)">
+            <ion-icon name="card"></ion-icon>
+            Money
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="child.factor" item-right></ion-input>
+        <button (click)="deposit(child)" clear item-right>
+          <ion-icon name='arrow-up'></ion-icon>
+        </button>
+        <button (click)="withdraw(child)" clear item-right>
+          <ion-icon name='arrow-down'></ion-icon>
+        </button>
       </ion-item>
-      <ion-item-options>
-        <button primary (click)="editTasks(child)">
-          <ion-icon name="clipboard"></ion-icon>
-          Tasks
-        </button>
-        <button secondary (click)="editMoney(child)">
-          <ion-icon name="card"></ion-icon>
-          Money
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+    </ion-list>
+  </ion-card>
   <button fab primary fab-bottom fab-center (click)="addChild()">
     <ion-icon name='add'></ion-icon>
   </button>
