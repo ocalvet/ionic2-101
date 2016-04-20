@@ -33,11 +33,12 @@ export class ChildrenListPage {
   }
 
   deposit(child) {
-    console.log('Depositing for child', child);
+    console.log('child', child);
+    child.balance += parseFloat(child.factor);
   }
 
   withdraw(child) {
-    console.log('withdraw for child', child);
+    child.balance -= parseFloat(child.factor);
   }
 
   editTasks(child) {

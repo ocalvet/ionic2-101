@@ -15,7 +15,6 @@
           </ion-avatar>
           <h2>{{ child.name }}</h2>
           <h3>{{ child.balance | currency:'USD':true }}</h3>
-          <p>{{ child.completedTasks }} / {{ child.totalTasks }}</p>
         </ion-item>
         <ion-item-options>
           <button primary (click)="editTasks(child)">
@@ -27,7 +26,11 @@
             Money
           </button>
         </ion-item-options>
-      </ion-item-sliding>
+      </ion-item-sliding>      
+      <ion-item *ngFor="#task of child.tasks | slice:0:2">
+        <ion-label>{{ task.title }}</ion-label>
+        <ion-checkbox [checked]="task.completed">{{ task.title }}</ion-checkbox>
+      </ion-item>
       <ion-item>
         <ion-input type="text" [(ngModel)]="child.factor" item-right></ion-input>
         <button (click)="deposit(child)" clear item-right>
