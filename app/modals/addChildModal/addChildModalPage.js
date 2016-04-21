@@ -2,9 +2,9 @@ import {Page, NavController, ViewController} from 'ionic-angular';
 import {ChildService} from '../../services/childService';
 
 @Page({
-  templateUrl: 'build/pages/childrenList/add.html'
+  templateUrl: 'build/modals/addChildModal/index.html'
 })
-export class AddChildPage {
+export class AddChildModalPage {
 
   static get parameters() {
     return [[NavController], [ViewController], [ChildService]];

@@ -1,7 +1,9 @@
 import {Page, NavController, Modal} from 'ionic-angular';
 import {ChildDashboardPage} from '../childDashboard/childDashboard';
-import {AddChildPage} from './addChildPage';
+import {AddChildModalPage} from '../../modals/addChildModal/addChildModalPage';
 import {ChildService} from '../../services/childService';
+import {DepositModalPage} from '../../modals/depositModal/depositModalPage';
+import {TaskModalPage} from '../../modals/taskModal/taskModalPage';
 
 @Page({
   templateUrl: 'build/pages/childrenList/index.html'
@@ -23,13 +25,28 @@ export class ChildrenListPage {
   }
 
   addChild() {
-    let addModal = Modal.create(AddChildPage);
+    let addModal = Modal.create(AddChildModalPage);
     addModal.onDismiss((data) => {
       if (data) {
         this.children.push(data);
       }
     });
     this.nav.present(addModal);
+  }
+
+  showDeppositModal(child) {
+    console.log('Deposit modal request', child);
+    let depositModal = Modal.create(DepositModalPage);
+    depositModal.onDismiss(() => {
+      console.log('deposit modal closed');
+    });
+    this.nav.present(depositModal);
+  }
+
+  showTaskModal(child) {
+    console.log('Task modal request', child);
+    let taskModal = Modal.create(TaskModalPage);
+    this.nav.present(taskModal);
   }
 
   deposit(child) {
