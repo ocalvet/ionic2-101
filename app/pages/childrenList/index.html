@@ -32,12 +32,11 @@
         <ion-checkbox [checked]="task.completed">{{ task.title }}</ion-checkbox>
       </ion-item>
       <ion-item>
-        <ion-input type="text" [(ngModel)]="child.factor" item-right></ion-input>
-        <button (click)="deposit(child)" clear item-right>
-          <ion-icon name='arrow-up'></ion-icon>
+        <button (click)="showDeppositModal(child)" clear item-right>
+          <ion-icon name='card'></ion-icon>
         </button>
-        <button (click)="withdraw(child)" clear item-right>
-          <ion-icon name='arrow-down'></ion-icon>
+        <button (click)="showAddTaskModal(child)" clear item-right>
+          <ion-icon name='add'></ion-icon>
         </button>
       </ion-item>
     </ion-list>
