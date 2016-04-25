@@ -13,7 +13,8 @@ export class DepositModalPage {
     this.nav = nav;
     this.viewCtrl = viewCtrl;
     this.child = params.get('child');
-    this.depositAmount = 10;
+    this.amount = 10;
+    this.child.balance = this.child.balance ? parseFloat(this.child.balance) : 0;
     console.log('params', params, this.child);
   }
 
@@ -22,9 +23,12 @@ export class DepositModalPage {
   }
 
   deposit(child, amount) {
-    console.log('Child deposit', child, amount);
-    child.balance = child.balance || 0;
     child.balance += amount;
+    this.viewCtrl.dismiss();
+  }
+  
+  withdraw(child, amount) {
+    child.balance -= amount;
     this.viewCtrl.dismiss();
   }
 }

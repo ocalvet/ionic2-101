@@ -4,9 +4,10 @@
       Deposit Money to
     </ion-item>
     <ion-item>
-      <input type="number" [(ngModel)]="depositAmount" />
+      <input type="number" [(ngModel)]="amount" />
     </ion-item>
   </ion-list>
-  <button block (click)="deposit(child, depositAmount)">Deposit</button>
+  <button block (click)="deposit(child, amount)">Deposit</button>
+  <button block (click)="withdraw(child, amount)" secondary>Withdraw</button>
   <button block (click)="closeModal()" danger>Dismiss</button>
 </ion-content>
