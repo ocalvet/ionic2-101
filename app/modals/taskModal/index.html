@@ -3,6 +3,10 @@
     <ion-item>
       Tasks Management for {{ child.name }}
     </ion-item>
+    <ion-item *ngFor="#task of child.tasks">
+      <ion-label>{{ task.title }}</ion-label>
+      <ion-checkbox [checked]="task.completed" (click)="taskMarked(task)">{{ task.title }}</ion-checkbox>
+    </ion-item>
   </ion-list>
   <button block (click)="closeModal()" danger>Dismiss</button>
 </ion-content>

@@ -15,6 +15,10 @@ export class TaskModalPage {
     this.child = params.get('child');
   }
 
+  taskMarked(task){
+    this.viewCtrl.dismiss(task);
+  }
+
   closeModal() {
     this.viewCtrl.dismiss();
   }

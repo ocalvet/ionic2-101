@@ -41,6 +41,11 @@ export class ChildrenListPage {
 
   showTaskModal(child) {
     let taskModal = Modal.create(TaskModalPage, { child: child });
+    taskModal.onDismiss((task) => {
+      let foundTask = child.tasks.filter((t) => t.id === task.id)[0];
+      foundTask.completed = !task.completed;
+      console.log('found task', foundTask, task);
+    })
     this.nav.present(taskModal);
   }
 
