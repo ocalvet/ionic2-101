@@ -36,15 +36,11 @@ export class ChildrenListPage {
 
   showDeppositModal(child) {
     let depositModal = Modal.create(DepositModalPage, { child: child });
-    depositModal.onDismiss(() => {
-      console.log('deposit modal closed');
-    });
     this.nav.present(depositModal);
   }
 
   showTaskModal(child) {
-    console.log('Task modal request', child);
-    let taskModal = Modal.create(TaskModalPage);
+    let taskModal = Modal.create(TaskModalPage, { child: child });
     this.nav.present(taskModal);
   }
 
