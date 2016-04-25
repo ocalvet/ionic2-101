@@ -35,8 +35,7 @@ export class ChildrenListPage {
   }
 
   showDeppositModal(child) {
-    console.log('Deposit modal request', child);
-    let depositModal = Modal.create(DepositModalPage);
+    let depositModal = Modal.create(DepositModalPage, { child: child });
     depositModal.onDismiss(() => {
       console.log('deposit modal closed');
     });

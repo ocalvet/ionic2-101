@@ -1,8 +1,12 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-      Deposit Money to Child
+      Deposit Money to
+    </ion-item>
+    <ion-item>
+      <input type="number" [(ngModel)]="depositAmount" />
     </ion-item>
   </ion-list>
+  <button block (click)="deposit(child, depositAmount)">Deposit</button>
   <button block (click)="closeModal()" danger>Dismiss</button>
 </ion-content>

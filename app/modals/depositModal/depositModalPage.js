@@ -1,4 +1,4 @@
-import {Page, NavController, ViewController} from 'ionic-angular';
+import {Page, NavController, ViewController, NavParams} from 'ionic-angular';
 
 @Page({
   templateUrl: 'build/modals/depositModal/index.html'
@@ -6,22 +6,25 @@ import {Page, NavController, ViewController} from 'ionic-angular';
 export class DepositModalPage {
 
   static get parameters() {
-    return [[NavController], [ViewController]];
+    return [[NavController], [ViewController], [NavParams]];
   }
 
-  constructor(nav, viewCtrl) {
+  constructor(nav, viewCtrl, params) {
     this.nav = nav;
     this.viewCtrl = viewCtrl;
-    this.child = {};
+    this.child = params.get('child');
+    this.depositAmount = 10;
+    console.log('params', params, this.child);
   }
 
   closeModal() {
     this.viewCtrl.dismiss();
   }
 
-  deposit(amount) {
-    this.child.balance = this.child.balance || 0;
-    this.child.balance += amount;
-    console.log('Depositing to child', this.child);
+  deposit(child, amount) {
+    console.log('Child deposit', child, amount);
+    child.balance = child.balance || 0;
+    child.balance += amount;
+    this.viewCtrl.dismiss();
   }
 }
