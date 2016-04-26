@@ -5,5 +5,12 @@
 </ion-navbar>
 
 <ion-content class="page2">
-  Notifications
+  <ion-card *ngFor="#notification of notifications">
+    <ion-card-header>
+      {{ notification.title }}
+    </ion-card-header>
+    <ion-card-content>
+      {{ notification.description }}
+    </ion-card-content>
+  </ion-card>
 </ion-content>
