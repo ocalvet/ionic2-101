@@ -10,7 +10,6 @@ export class NotificationsPage {
   }
 
   constructor(nav, notificationService) {
-    console.log('not. srvc', nav, notificationService);
     this.nav = nav;
     this.notificationService = notificationService;
     this.notificationService.getNotifications()
