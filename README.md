@@ -7,7 +7,7 @@ The app consist of a money and task manager for children where parents can go ah
 $ ionic serve
 ```
 
-## IOS Devic
+## IOS Device
 ```
 $ ionic emulate ios
 ```
