@@ -11,3 +11,8 @@ $ ionic serve
 ```
 $ ionic emulate ios
 ```
+
+## Android Device
+```
+$ ionic emulate android
+```
