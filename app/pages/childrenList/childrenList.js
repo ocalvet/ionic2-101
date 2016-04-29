@@ -2,6 +2,7 @@ import {Page, NavController, Modal} from 'ionic-angular';
 import {ChildDashboardPage} from '../childDashboard/childDashboard';
 import {AddChildModalPage} from '../../modals/addChildModal/addChildModalPage';
 import {ChildService} from '../../services/childService';
+import {SettingsService} from '../../services/settingsService';
 import {DepositModalPage} from '../../modals/depositModal/depositModalPage';
 import {TaskModalPage} from '../../modals/taskModal/taskModalPage';
 
@@ -10,13 +11,24 @@ import {TaskModalPage} from '../../modals/taskModal/taskModalPage';
 })
 export class ChildrenListPage {
   static get parameters() {
-    return [[NavController], [ChildService]];
+    return [[NavController], [ChildService], [SettingsService]];
   }
 
-  constructor(nav, childService) {
+  constructor(nav, childService, settingsService) {
     this.nav = nav;
     this.childService = childService;
-    childService.getChildren()
+
+    // Get application settings
+    settingsService
+      .getSettings()
+      .then((settings) => {
+        console.log('settings', settings);
+        this.settings = settings
+      });
+
+    // Get application settings
+    childService
+      .getChildren()
       .then((children) => this.children = children);
   }
 
