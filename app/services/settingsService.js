@@ -5,7 +5,7 @@ export class SettingsService {
   getSettings() {
     return new Promise((resolve, reject) => {
       resolve({
-        showTasks: false
+        showTasks: true
       });
     });
   }
