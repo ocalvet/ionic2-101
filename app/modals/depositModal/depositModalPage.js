@@ -26,7 +26,7 @@ export class DepositModalPage {
     child.balance += amount;
     this.viewCtrl.dismiss();
   }
-  
+
   withdraw(child, amount) {
     child.balance -= amount;
     this.viewCtrl.dismiss();

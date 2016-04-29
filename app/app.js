@@ -4,10 +4,11 @@ import {StatusBar} from 'ionic-native';
 import {TabsPage} from './pages/tabs/tabs';
 import {ChildService} from './services/childService';
 import {NotificationService} from './services/notificationService';
+import {SettingsService} from './services/settingsService';
 
 @App({
   template: '<ion-nav [root]="rootPage"></ion-nav>',
-  providers: [ChildService, NotificationService],
+  providers: [ChildService, NotificationService, SettingsService],
   config: {
     tabbarPlacement: 'bottom'
   } // http://ionicframework.com/docs/v2/api/config/Config/
