@@ -32,7 +32,7 @@
         <ion-checkbox [checked]="task.completed">{{ task.title }}</ion-checkbox>
       </ion-item>
       <ion-item [hidden]="!settings.showTransactions" *ngFor="#transaction of child.transactions | slice:0:2">
-        {{ transaction.title }}
+        {{ transaction.description }}
         <ion-note item-right>
           {{ transaction.amount | currency:'USD':true }}
         </ion-note>
