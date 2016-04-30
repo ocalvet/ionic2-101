@@ -21,6 +21,16 @@ export class ChildService {
           id: 3,
           title: "Make the bed",
           completed: false
+        }],
+        transactions: [{
+          description: "deposit",
+          amount: 10
+        }, {
+          description: "deposit",
+          amount: 10
+        }, {
+          description: "withdraw",
+          amount: -10
         }]
       },{
         name: "Jonathan Calvet",
@@ -35,7 +45,8 @@ export class ChildService {
           id: 2,
           title: "Clean the cars",
           completed: false
-        }]
+        }],
+        transactions: []
       }]);
     });
   }

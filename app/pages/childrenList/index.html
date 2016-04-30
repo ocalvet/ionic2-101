@@ -31,6 +31,12 @@
         <ion-label>{{ task.title }}</ion-label>
         <ion-checkbox [checked]="task.completed">{{ task.title }}</ion-checkbox>
       </ion-item>
+      <ion-item [hidden]="!settings.showTransactions" *ngFor="#transaction of child.transactions | slice:0:2">
+        {{ transaction.title }}
+        <ion-note item-right>
+          {{ transaction.amount | currency:'USD':true }}
+        </ion-note>
+      </ion-item>
       <ion-item>
         <button (click)="showDeppositModal(child)" clear item-right>
           <ion-icon name='card'></ion-icon>
