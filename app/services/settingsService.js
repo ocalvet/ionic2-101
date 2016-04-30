@@ -1,7 +1,9 @@
 export class SettingsService {
   constructor() {
     this.settings = {
-      showTasks: true
+      showTasks: true,
+      showTransactions: false,
+      showNotifications: false
     };
   }
 
