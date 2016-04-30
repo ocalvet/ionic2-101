@@ -27,16 +27,27 @@
           </button>
         </ion-item-options>
       </ion-item-sliding>
-      <ion-item [hidden]="!settings.showTasks" *ngFor="#task of child.tasks | slice:0:2">
+      </ion-list>
+    <ion-list no-border [hidden]="!settings.showTasks">
+    <ion-list-header>
+      Tasks
+    </ion-list-header>
+      <ion-item *ngFor="#task of child.tasks | slice:0:2">
         <ion-label>{{ task.title }}</ion-label>
         <ion-checkbox [checked]="task.completed">{{ task.title }}</ion-checkbox>
       </ion-item>
-      <ion-item [hidden]="!settings.showTransactions" *ngFor="#transaction of child.transactions | slice:0:2">
+      </ion-list>
+      <ion-list [hidden]="!settings.showTransactions">
+    <ion-list-header>
+      Transactions
+    </ion-list-header>
+      <ion-item *ngFor="#transaction of child.transactions | slice:0:2">
         {{ transaction.description }}
         <ion-note item-right>
           {{ transaction.amount | currency:'USD':true }}
         </ion-note>
       </ion-item>
+    </ion-list>
       <ion-item>
         <button (click)="showDeppositModal(child)" clear item-right>
           <ion-icon name='card'></ion-icon>
@@ -45,6 +56,5 @@
           <ion-icon name='add'></ion-icon>
         </button>
       </ion-item>
-    </ion-list>
   </ion-card>
 </ion-content>
