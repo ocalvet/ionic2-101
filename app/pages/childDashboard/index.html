@@ -6,10 +6,13 @@
 <ion-content class="page3">
   <ion-card>
     <ion-card-header>
-      {{ child.name }}
+      Tasks
     </ion-card-header>
     <ion-card-content>
-        <ion-item>Total Tasks: {{ child.totalTasks }}</ion-item>
+      <ion-item *ngFor="#task of child.tasks">
+        <ion-label>{{ task.title }}</ion-label>
+        <ion-checkbox [checked]="task.completed">{{ task.title }}</ion-checkbox>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 </ion-content>
