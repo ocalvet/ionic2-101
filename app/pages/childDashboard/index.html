@@ -15,4 +15,15 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
+  <ion-card>
+    <ion-card-header>
+      Transactions
+    </ion-card-header>
+    <ion-item *ngFor="#transaction of child.transactions | slice:0:2">
+      {{ transaction.description }}
+      <ion-note item-right>
+        {{ transaction.amount | currency:'USD':true }}
+      </ion-note>
+    </ion-item>
+  </ion-card>
 </ion-content>
