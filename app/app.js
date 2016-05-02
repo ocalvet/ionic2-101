@@ -5,10 +5,11 @@ import {TabsPage} from './pages/tabs/tabs';
 import {ChildService} from './services/childService';
 import {NotificationService} from './services/notificationService';
 import {SettingsService} from './services/settingsService';
+import {DBService} from './services/dbService';
 
 @App({
   template: '<ion-nav [root]="rootPage"></ion-nav>',
-  providers: [ChildService, NotificationService, SettingsService],
+  providers: [ChildService, NotificationService, SettingsService, DBService],
   config: {
     tabbarPlacement: 'bottom'
   } // http://ionicframework.com/docs/v2/api/config/Config/
