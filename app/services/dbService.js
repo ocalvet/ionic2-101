@@ -8,10 +8,11 @@ export class DBService {
     let options = {
       live: true,
       retry: true,
-      continuous: true
+      continuous: true,
+      ajax: {withCredentials: false}
     };
 
-    this.db.sync('http://192.168.1.103:5984/fr');
+    this.db.sync('http://192.168.1.103:5984/fr', options);
 
   }
 
@@ -19,7 +20,7 @@ export class DBService {
     this.db.put(doc);
   }
 
-  getTeams() {
+  getDocuments() {
     return new Promise(resolve => {
       this.db.allDocs({ include_docs: true })
         .then((result) => {
