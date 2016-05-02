@@ -25,6 +25,8 @@ export class DBService {
       this.db.allDocs({ include_docs: true })
         .then((result) => {
           this.data = [];
+          console.log('docs from db', result);
+
           let docs = result.rows.map((row) => {
             this.data.push(row.doc);
             resolve(this.data);
@@ -44,6 +46,7 @@ export class DBService {
   handleChange(change) {
     let changedDoc = null;
     let changedIndex = null;
+    console.log('change called', change);
 
     this.data.forEach((doc, index) => {
       if (doc._id === change.id) {
@@ -58,7 +61,7 @@ export class DBService {
       if (changedDoc) {
         this.data[changedIndex] = change.doc;
       } else {
-        this.data.push(chan);
+        this.data.push(change.doc);
       }
     }
   }
